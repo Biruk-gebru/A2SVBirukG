@@ -1,0 +1,5 @@
+x=int(input())
+a1=set(map(int,input().split()))
+y=int(input())
+a2=set(map(int,input().split()))
+print(len(set(a1.union(a2))))
