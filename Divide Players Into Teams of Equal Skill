@@ -1,0 +1,16 @@
+class Solution:
+    def dividePlayers(self, skill: List[int]) -> int:
+        s=sorted(skill)
+        i=0
+        j=len(s)-1
+        sol=0
+        ma=s[j]+s[i]
+        while i<j:
+            if s[i]+s[j]!=ma:
+                sol=-1
+                break
+            else:
+                sol+=(s[i]*s[j])
+                i+=1
+                j-=1
+        return sol
