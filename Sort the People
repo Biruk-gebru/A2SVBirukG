@@ -1,0 +1,31 @@
+def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+    # for i in range(len(names)):
+    #     for(j) in range(len(heights)-i-1):
+    #         if(heights[j]<heights[j+1]):
+    #             heights[j],heights[j+1]=heights[j+1],heights[j]
+    #             names[j],names[j+1]=names[j+1],names[j]
+    # return names
+    # size = len(names)
+    # for i in range(size):
+    #     min_idx = i
+    #     for j in range(i + 1, size):
+    #         if heights[min_idx] < heights[j]:
+    #             min_idx = j
+    #     heights[i],heights[min_idx] = heights[min_idx],heights[i]
+    #     names[i],names[min_idx] = names[min_idx],names[i]
+    # return	names
+    size = len(names)
+
+    for i in range(1, size):
+        key = heights[i]
+        key1=names[i]
+        j = i - 1
+
+
+        while j >= 0 and key > heights[j]:
+                heights[j + 1] = heights[j]
+                names[j+1]=names[j]
+                j -= 1
+        heights[j + 1] = key
+        names[j+1]=key1
+    return	names
