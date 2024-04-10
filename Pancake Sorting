@@ -1,0 +1,12 @@
+class Solution:
+    def pancakeSort(self, arr: List[int]) -> List[int]:
+        n=len(arr)
+        a=arr.copy()
+        sol=[]
+        for x in range(n,0,-1):
+            idx=a.index(x)
+            sol.extend([idx+1,x])
+            a[:idx+1]=list(reversed(a[:idx+1]))
+            a[:x]=list(reversed(a[:x]))
+            print(a)
+        return sol
