@@ -1,0 +1,20 @@
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        sol=[]
+        for i in range(len(nums)):
+            r=len(nums)-1
+            l=i+1
+            while r>l:
+                sum=nums[r]+nums[l]+nums[i]
+                if sum>0:
+                    r-=1
+                elif sum<0:
+                    l+=1
+                else:
+                    triplet=[nums[r],nums[l],nums[i]]
+                    if triplet not in sol:
+                        sol.append(triplet)
+                r=r-1
+                l=l+1
+        return(sol)
