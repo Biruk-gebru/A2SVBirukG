@@ -1,0 +1,16 @@
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        n, m = len(nums1), len(nums2)
+        sol = [-1] * n \
+        for i in range(n):
+            c = nums1[i]
+            flag = False
+            
+            for j in range(m):
+                if nums2[j] == c:
+                    flag = True 
+                if flag and nums2[j] > c:
+                    sol[i] = nums2[j]
+                    break  
+        
+        return sol
