@@ -1,0 +1,26 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+        
+        sol = []
+        
+        def level(node, depth):
+            if depth >= len(sol):
+                sol.append([])
+            sol[depth].append(node.val)
+            
+            if node.left:
+                level(node.left, depth + 1)
+            if node.right:
+                level(node.right, depth + 1)
+        
+        level(root, 0)
+        
+        return sol
