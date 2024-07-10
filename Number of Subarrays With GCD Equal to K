@@ -1,0 +1,19 @@
+class Solution:
+    def subarrayGCD(self, nums: List[int], k: int) -> int:
+        count = 0
+        def gcd(a,b):
+            if b == 0:
+                return a
+            return gcd(b, a % b)
+
+        for i in range(len(nums)):
+            gc = nums[i]
+            if gc == k:
+                count += 1
+            for j in range(i+1, len(nums)):
+                gc = gcd(gc, nums[j])
+                if gc == k:
+                    count += 1
+        return count
+
+   
