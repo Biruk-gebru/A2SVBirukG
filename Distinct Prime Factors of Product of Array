@@ -1,0 +1,24 @@
+class Solution:
+    def distinctPrimeFactors(self, nums: List[int]) -> int:
+        pr=1
+        for n in nums:
+            pr*=n
+        def prime_factorize(n):
+            factors = []
+            i = 2
+            while i * i <= n:
+                if n % i == 0:
+                    factors.append(i)
+                    n //= i
+                else:
+                    i += 1
+            if n > 2:
+                factors.append(n)
+            return factors
+        sol=set(prime_factorize(pr))
+        if sol:
+            return len(sol)
+        else:
+            return 1
+
+        
